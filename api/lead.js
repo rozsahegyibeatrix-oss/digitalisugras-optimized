@@ -1,10 +1,7 @@
 import { Resend } from "resend";
 
 const TO_EMAIL = "digitalisugras@gmail.com";
-// Resend's shared sandbox sender — works without a verified domain.
-// Once a domain is verified in Resend, swap this for something like
-// "Digitális Ugrás <hello@digitalisugras.hu>".
-const FROM_EMAIL = "Digitális Ugrás <onboarding@resend.dev>";
+const FROM_EMAIL = "Digitális Ugrás <hello@digitalisugras.company>";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
