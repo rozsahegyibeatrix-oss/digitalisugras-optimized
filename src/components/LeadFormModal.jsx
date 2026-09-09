@@ -13,9 +13,10 @@ export default function LeadFormModal({ open, onClose }) {
   const [contact, setContact] = useState("");
   const [name, setName] = useState("");
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [failed, setFailed] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const mailtoFallback = () => {
     const subject = encodeURIComponent(`[Digitális Ugrás] Új jelentkezés${name ? ` — ${name}` : ""}`);
     const body = encodeURIComponent(
       `Név: ${name || "-"}\n` +
@@ -24,7 +25,25 @@ export default function LeadFormModal({ open, onClose }) {
       `3. Legjobb elérhetőség: ${contact || "-"}\n`
     );
     window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
-    setSent(true);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSending(true);
+    setFailed(false);
+    try {
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, business, pain, contact }),
+      });
+      if (!res.ok) throw new Error("send failed");
+      setSent(true);
+    } catch {
+      setFailed(true);
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -115,11 +134,20 @@ export default function LeadFormModal({ open, onClose }) {
                     className="lead-input"
                   />
                 </Field>
+                {failed && (
+                  <p className="text-sm text-red-600">
+                    {L.error}{" "}
+                    <button type="button" onClick={mailtoFallback} className="underline">
+                      {EMAIL}
+                    </button>
+                  </p>
+                )}
                 <button
                   type="submit"
-                  className="w-full mt-2 inline-flex items-center justify-center gap-2 bg-cobalt text-white py-3.5 rounded-xl font-semibold hover:bg-cobalt-dark transition-colors"
+                  disabled={sending}
+                  className="w-full mt-2 inline-flex items-center justify-center gap-2 bg-cobalt text-white py-3.5 rounded-xl font-semibold hover:bg-cobalt-dark transition-colors disabled:opacity-60"
                 >
-                  {L.submit} <ArrowRight className="w-4 h-4" />
+                  {sending ? L.sending : L.submit} <ArrowRight className="w-4 h-4" />
                 </button>
               </form>
             )}
