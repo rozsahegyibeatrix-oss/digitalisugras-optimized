@@ -66,6 +66,7 @@ export default function Pricing({ onOpenLead }) {
             </motion.div>
           ))}
         </div>
+        <p className="text-xs text-muted-fg mt-8 max-w-2xl">{P.adSpendNote}</p>
       </div>
     </section>
   );

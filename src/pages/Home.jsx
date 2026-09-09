@@ -8,6 +8,7 @@ import LeapButton from "@/components/LeapButton";
 import Hero from "@/components/sections/Hero";
 import LaunchOffer from "@/components/sections/LaunchOffer";
 import Portfolio from "@/components/sections/Portfolio";
+import Testimonials from "@/components/sections/Testimonials";
 import HowItWorks from "@/components/sections/HowItWorks";
 import Benefits from "@/components/sections/Benefits";
 import Trust from "@/components/sections/Trust";
@@ -27,6 +28,7 @@ function HomeContent() {
         <Hero onOpenLead={openLead} />
         <LaunchOffer onOpenLead={openLead} />
         <Portfolio />
+        <Testimonials />
         <HowItWorks onOpenLead={openLead} />
         <Benefits />
         <Trust />

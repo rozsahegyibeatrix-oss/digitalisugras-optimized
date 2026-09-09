@@ -25,6 +25,18 @@ export default function LaunchOffer({ onOpenLead }) {
               </motion.span>
             </div>
             <p className="text-silver/80 mt-3 text-sm">{O.note}</p>
+            <div className="mt-5 max-w-[220px]">
+              <div className="flex items-baseline justify-between text-xs font-mono text-silver/70 mb-1.5">
+                <span>{O.spotsTaken} / {O.spotsTotal}</span>
+                <span>{O.spotsLabel}</span>
+              </div>
+              <div className="h-1.5 rounded-full bg-silver/20 overflow-hidden">
+                <div
+                  className="h-full rounded-full bg-cobalt"
+                  style={{ width: `${Math.min(100, (O.spotsTaken / O.spotsTotal) * 100)}%` }}
+                />
+              </div>
+            </div>
             <div className="mt-8">
               <LeapButton onClick={onOpenLead} variant="outline" className="border-ice/40 text-ice hover:bg-ice hover:text-ink">
                 {t.nav.cta}

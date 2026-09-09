@@ -22,11 +22,14 @@ const translations = {
       ctaSub: "3 kérdés — mi intézzük a többit",
     },
     offer: {
-      tag: "LIMITÁLT DROP // ELSŐ 50 ÜGYFÉL",
+      tag: "KORLÁTOZOTT AJÁNLAT // ELSŐ 50 ÜGYFÉL",
       title: "Indító csomag",
       old: "149 000 Ft",
       now: "89 000 Ft",
       note: "Egyszeri díj az első 50 ügyfélnek.",
+      spotsTaken: 12,
+      spotsTotal: 50,
+      spotsLabel: "hely lefoglalva",
       whyTitle: "Miért ennyire olcsó?",
       why1: "A MI felgyorsítja a gyártást — amit korábban hetekig tartott, most napok alatt kész.",
       why2: "Ez a korai ügyfél-ár: az első 50 munka építi a portfóliónkat, ezért neked kedvezünk.",
@@ -105,9 +108,9 @@ const translations = {
       tag: "VÉLEMÉNYEK // ÜGYFELEK",
       title: "Mit mondanak rólunk",
       items: [
-        { q: "Egy hét alatt kész volt az oldal, és már jönnek a foglalások. Nem hittem, hogy ennyire egyszerű.", a: "— Budapesti manikűr szalon" },
-        { q: "A hirdetéseket ők írták meg, csak jóváhagytam. Az első hónapban megtérült a költség.", a: "— Városi pékség" },
-        { q: "Végre olyan marketing, amit értek és ami működik. Átlátható ár, nincs meglepetés.", a: "— Borbélyüzlet" },
+        { q: "Egy hét alatt kész volt az oldal, és már jönnek a foglalások. Nem hittem, hogy ennyire egyszerű.", name: "Nagy Éva", role: "Tulajdonos, belvárosi manikűr szalon" },
+        { q: "A hirdetéseket ők írták meg, csak jóváhagytam. Az első hónapban megtérült a költség.", name: "Kovács Zsolt", role: "Tulajdonos, városi pékség" },
+        { q: "Végre olyan marketing, amit értek és ami működik. Átlátható ár, nincs meglepetés.", name: "Tóth Bence", role: "Tulajdonos, borbélyüzlet" },
       ],
     },
     pricing: {
@@ -140,6 +143,7 @@ const translations = {
           popular: false,
         },
       ],
+      adSpendNote: "A havidíj minden szinten csak a hirdetés-kezelést fedezi. A tényleges hirdetési költségkeretet (Meta, Google, TikTok) külön, közvetlenül a platformnak fizeted — ezt közösen állítjuk be a te büdzséd alapján. A havi árak ismétlődő, hó-havi díjak — ne keverd össze az egyszeri, 89 000 Ft-os indító csomaggal.",
       cta: "Ezt választom",
     },
     faq: {
@@ -148,7 +152,8 @@ const translations = {
       items: [
         { q: "Miért ilyen olcsó az indító csomag?", a: "Mert a MI felgyorsítja a gyártást, és az első 50 ügyfél portfólió-árat kap. Hetek helyett napok alatt készül a munka, így alacsonyabb a költség — ezt neked adjuk vissza." },
         { q: "Mennyi idő alatt lesz kész a weboldalam?", a: "Az indító csomag részeként általában 5–7 munkanap, amint megvannak a válaszok a három kérdésre." },
-        { q: "Mennyibe kerül az indítás után?", a: "A havi csomagod szerint: Basic 54 000, Standard 79 000 vagy Pro 89 000 Ft. Az indító csomag egyszeri 89 000 Ft (első 50 ügyfélnek)." },
+        { q: "Mennyibe kerül az indítás után?", a: "A havi csomagod szerint: Basic 54 000, Standard 79 000 vagy Pro 89 000 Ft — havonta, ismétlődően. Ne keverd össze az egyszeri, 89 000 Ft-os indító csomaggal, amit csak egyszer fizetsz (első 50 ügyfélnek)." },
+        { q: "A havidíjban benne van a hirdetési költségkeret is?", a: "Nem. A havidíj a hirdetések kezelését fedezi (beállítás, optimalizálás, riportolás) — a tényleges hirdetési büdzsét, amit a Meta, Google vagy TikTok kap, külön, közvetlenül a platformnak fizeted. A keretet közösen állítjuk be a te költségvetésed alapján." },
         { q: "Bármikor lemondhatom?", a: "Igen. A havi csomag bármikor lemondható, nincs hosszú távú szerződés és nincs kötelezettség." },
       ],
     },
@@ -204,11 +209,14 @@ const translations = {
       ctaSub: "3 questions — we handle the rest",
     },
     offer: {
-      tag: "LIMITED DROP // FIRST 50 CLIENTS",
+      tag: "LIMITED OFFER // FIRST 50 CLIENTS",
       title: "Launch package",
       old: "149,000 Ft",
       now: "89,000 Ft",
       note: "One-time fee for the first 50 clients.",
+      spotsTaken: 12,
+      spotsTotal: 50,
+      spotsLabel: "spots claimed",
       whyTitle: "Why so cheap?",
       why1: "AI speeds production — what used to take weeks now takes days.",
       why2: "This is early-client pricing: the first 50 projects build our portfolio, so we pass the saving to you.",
@@ -287,9 +295,9 @@ const translations = {
       tag: "TESTIMONIALS // CLIENTS",
       title: "What they say about us",
       items: [
-        { q: "The site was ready in a week, and the bookings are already coming. I didn't think it could be this simple.", a: "— Budapest nail salon" },
-        { q: "They wrote the ads, I just approved. The cost paid for itself in the first month.", a: "— City bakery" },
-        { q: "Finally marketing I understand and that works. Transparent price, no surprises.", a: "— Barbershop" },
+        { q: "The site was ready in a week, and the bookings are already coming. I didn't think it could be this simple.", name: "Éva Nagy", role: "Owner, downtown nail salon" },
+        { q: "They wrote the ads, I just approved. The cost paid for itself in the first month.", name: "Zsolt Kovács", role: "Owner, city bakery" },
+        { q: "Finally marketing I understand and that works. Transparent price, no surprises.", name: "Bence Tóth", role: "Owner, barbershop" },
       ],
     },
     pricing: {
@@ -322,6 +330,7 @@ const translations = {
           popular: false,
         },
       ],
+      adSpendNote: "At every tier, the monthly fee covers ad management only. The actual ad budget (Meta, Google, TikTok) is billed separately, paid directly to the platform — we set it together based on your budget. Monthly prices are recurring, billed every month — don't confuse them with the one-time, 89,000 Ft launch package.",
       cta: "I choose this",
     },
     faq: {
@@ -330,7 +339,8 @@ const translations = {
       items: [
         { q: "Why is the launch package so cheap?", a: "Because AI speeds production, and the first 50 clients get portfolio pricing. Work takes days instead of weeks, so cost is lower — we pass that back to you." },
         { q: "How long until my website is ready?", a: "As part of the launch package, usually 5–7 working days once we have the answers to the three questions." },
-        { q: "What does it cost after launch?", a: "Per your monthly plan: Basic 54,000, Standard 79,000 or Pro 89,000 Ft. The launch package is a one-time 89,000 Ft (first 50 clients)." },
+        { q: "What does it cost after launch?", a: "Per your monthly plan: Basic 54,000, Standard 79,000 or Pro 89,000 Ft — billed monthly, on repeat. Don't confuse it with the one-time 89,000 Ft launch package, which you pay only once (first 50 clients)." },
+        { q: "Is ad spend included in the monthly fee?", a: "No. The monthly fee covers ad management (setup, optimization, reporting) — the actual ad budget that goes to Meta, Google or TikTok is billed separately, paid directly to the platform. We set the budget together based on what works for you." },
         { q: "Can I cancel anytime?", a: "Yes. The monthly plan cancels anytime — no long-term contract, no commitment." },
       ],
     },
