@@ -15,9 +15,7 @@ import MiniPai from "@/components/showcase/MiniPai";
 // the paths below to match whatever you name them).
 const PROJECTS = [
   { id: "coupe", name: "Coupé Barber", url: "coupebarber.com", Mini: MiniCoupe, video: "/assets/portfolio/coupe-video.mp4", screenshot: "/assets/portfolio/coupe-screenshot.webp", w: 1400, h: 724 },
-  // atelier's clip is landscape (640x360) — cropping it to a portrait phone frame
-  // would throw away most of the picture, so it gets letterboxed instead.
-  { id: "atelier", name: "Atelier V", url: "atelierv.space", Mini: MiniAtelierV, video: "/assets/portfolio/atelier-video.mp4", screenshot: "/assets/portfolio/atelier-screenshot.webp", w: 1400, h: 731, landscapeVideo: true },
+  { id: "atelier", name: "Atelier V", url: "atelierv.space", Mini: MiniAtelierV, video: "/assets/portfolio/atelier-video.mp4", screenshot: "/assets/portfolio/atelier-screenshot.webp", w: 1400, h: 731 },
   { id: "kirembe", name: "Kirembe Adventures", url: "kirembeadventures.online", Mini: MiniKirembe, video: "/assets/portfolio/kirembe-video.mp4", screenshot: "/assets/portfolio/kirembe-screenshot.webp", w: 1400, h: 737 },
   { id: "pai", name: "Pai Striking Academy", url: "paistrinkingacademy.space", Mini: MiniPai, video: "/assets/portfolio/pai-video.mp4", screenshot: "/assets/portfolio/pai-screenshot.webp", w: 1400, h: 724 },
 ];
@@ -105,9 +103,7 @@ function ShowcaseCard({ project, index, data, labels }) {
                 <Mini />
                 <LazyVideo
                   src={project.video}
-                  className={`absolute inset-0 w-full h-full ${
-                    project.landscapeVideo ? "object-contain" : "object-cover"
-                  }`}
+                  className="absolute inset-0 w-full h-full object-cover object-center"
                 />
               </>
             ) : (
