@@ -52,7 +52,7 @@ function ShowcaseCard({ project, index, data, labels }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.5, delay: (index % 2) * 0.08 }}
-      className="group overflow-hidden"
+      className="group"
     >
       <div className="flex items-start justify-between gap-4 mb-4">
         <div>
@@ -71,16 +71,16 @@ function ShowcaseCard({ project, index, data, labels }) {
         </a>
       </div>
 
-      {/* Laptop view + phone with the social video, side by side.
-          Both are real flex columns at every size — the laptop shrinks (min-w-0) and the
-          phone keeps a fixed, breakpoint-scaled width, so nothing overflows the viewport
-          and the phone stays visible on mobile. */}
-      <div className="flex items-end gap-2 sm:gap-4 lg:gap-6 w-full">
+      {/* Laptop gets the full card width now — it was previously squeezed by
+          sharing a flex row with the phone. The phone instead overlaps the
+          laptop's bottom-right corner, like a floating badge, so the main
+          product shot reads much bigger while the mobile view stays visible. */}
+      <div className="relative w-full pb-6 pr-5 sm:pb-8 sm:pr-8 lg:pr-9">
         <a
           href={liveUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 min-w-0 rounded-lg sm:rounded-xl hover:shadow-xl transition-shadow duration-300"
+          className="block rounded-lg sm:rounded-xl hover:shadow-xl transition-shadow duration-300"
           aria-label={`${project.name} — live site`}
         >
           <LaptopFrame url={project.url}>
@@ -95,7 +95,7 @@ function ShowcaseCard({ project, index, data, labels }) {
             />
           </LaptopFrame>
         </a>
-        <div className="w-[76px] sm:w-[110px] lg:w-[140px] shrink-0 drop-shadow-2xl">
+        <div className="absolute bottom-0 right-0 w-[76px] sm:w-[110px] lg:w-[140px] drop-shadow-2xl">
           <PhoneFrame>
             {project.video ? (
               <>
