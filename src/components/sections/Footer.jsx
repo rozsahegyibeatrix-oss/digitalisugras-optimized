@@ -17,8 +17,8 @@ export default function Footer({ onOpenLead }) {
 
         <a
           href="mailto:digitalisugras@gmail.com"
-          className="block font-heading font-semibold tracking-tight text-ice hover:text-cobalt transition-colors leading-[0.95]"
-          style={{ fontSize: "clamp(2.5rem, 10vw, 9rem)" }}
+          className="block max-w-full font-heading font-semibold tracking-tight text-ice hover:text-cobalt transition-colors leading-[0.95] [overflow-wrap:anywhere]"
+          style={{ fontSize: "clamp(1.75rem, 6.5vw, 7rem)" }}
         >
           digitalisugras@gmail.com
         </a>

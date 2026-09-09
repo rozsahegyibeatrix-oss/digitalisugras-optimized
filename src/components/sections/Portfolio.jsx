@@ -15,7 +15,9 @@ import MiniPai from "@/components/showcase/MiniPai";
 // the paths below to match whatever you name them).
 const PROJECTS = [
   { id: "coupe", name: "Coupé Barber", url: "coupebarber.com", Mini: MiniCoupe, video: "/assets/portfolio/coupe-video.mp4", screenshot: "/assets/portfolio/coupe-screenshot.webp", w: 1400, h: 724 },
-  { id: "atelier", name: "Atelier V", url: "atelierv.space", Mini: MiniAtelierV, video: "/assets/portfolio/atelier-video.mp4", screenshot: "/assets/portfolio/atelier-screenshot.webp", w: 1400, h: 731 },
+  // atelier's clip is landscape (640x360) — cropping it to a portrait phone frame
+  // would throw away most of the picture, so it gets letterboxed instead.
+  { id: "atelier", name: "Atelier V", url: "atelierv.space", Mini: MiniAtelierV, video: "/assets/portfolio/atelier-video.mp4", screenshot: "/assets/portfolio/atelier-screenshot.webp", w: 1400, h: 731, landscapeVideo: true },
   { id: "kirembe", name: "Kirembe Adventures", url: "kirembeadventures.online", Mini: MiniKirembe, video: "/assets/portfolio/kirembe-video.mp4", screenshot: "/assets/portfolio/kirembe-screenshot.webp", w: 1400, h: 737 },
   { id: "pai", name: "Pai Striking Academy", url: "paistrinkingacademy.space", Mini: MiniPai, video: "/assets/portfolio/pai-video.mp4", screenshot: "/assets/portfolio/pai-screenshot.webp", w: 1400, h: 724 },
 ];
@@ -71,8 +73,11 @@ function ShowcaseCard({ project, index, data, labels }) {
         </a>
       </div>
 
-      {/* Laptop view + phone with the social video, side by side */}
-      <div className="relative flex items-end gap-2 sm:gap-4 lg:gap-6 w-full overflow-x-hidden">
+      {/* Laptop view + phone with the social video, side by side.
+          Both are real flex columns at every size — the laptop shrinks (min-w-0) and the
+          phone keeps a fixed, breakpoint-scaled width, so nothing overflows the viewport
+          and the phone stays visible on mobile. */}
+      <div className="flex items-end gap-2 sm:gap-4 lg:gap-6 w-full">
         <a
           href={liveUrl}
           target="_blank"
@@ -92,14 +97,18 @@ function ShowcaseCard({ project, index, data, labels }) {
             />
           </LaptopFrame>
         </a>
-        {/* On phones the device overlaps the laptop corner; on larger screens it sits beside it */}
-        <div className="hidden sm:block absolute sm:static right-2 sm:right-auto bottom-2 sm:bottom-auto w-[140px] sm:w-[120px] lg:w-[150px] aspect-[9/19] drop-shadow-2xl shrink-0 z-10">
+        <div className="w-[76px] sm:w-[110px] lg:w-[140px] shrink-0 drop-shadow-2xl">
           <PhoneFrame>
             {project.video ? (
               <>
                 {/* Static recreation shows instantly while the video buffers */}
                 <Mini />
-                <LazyVideo src={project.video} className="absolute inset-0 w-full h-full object-cover" />
+                <LazyVideo
+                  src={project.video}
+                  className={`absolute inset-0 w-full h-full ${
+                    project.landscapeVideo ? "object-contain" : "object-cover"
+                  }`}
+                />
               </>
             ) : (
               <Mini />
