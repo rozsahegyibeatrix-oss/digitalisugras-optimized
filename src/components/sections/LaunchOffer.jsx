@@ -1,11 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
 import LeapButton from "@/components/LeapButton";
+import { startCheckout } from "@/lib/checkout";
 
-export default function LaunchOffer({ onOpenLead }) {
+export default function LaunchOffer() {
   const { t } = useI18n();
   const O = t.offer;
+  const P = t.pricing;
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+
+  const handleChoose = async () => {
+    setError(false);
+    setLoading(true);
+    try {
+      await startCheckout("launch");
+    } catch {
+      setLoading(false);
+      setError(true);
+    }
+  };
+
   return (
     <section className="relative py-16 sm:py-24 bg-ink text-ice">
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8">
@@ -38,9 +54,15 @@ export default function LaunchOffer({ onOpenLead }) {
               </div>
             </div>
             <div className="mt-8">
-              <LeapButton onClick={onOpenLead} variant="outline" className="border-ice/40 text-ice hover:bg-ice hover:text-ink">
-                {t.nav.cta}
+              <LeapButton
+                onClick={handleChoose}
+                disabled={loading}
+                variant="outline"
+                className="border-ice/40 text-ice hover:bg-ice hover:text-ink"
+              >
+                {loading ? P.processing : t.nav.cta}
               </LeapButton>
+              {error && <p className="text-xs text-red-400 mt-2">{P.checkoutError}</p>}
             </div>
           </div>
 

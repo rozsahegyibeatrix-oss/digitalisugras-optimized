@@ -145,6 +145,12 @@ const translations = {
       ],
       adSpendNote: "A havidíj minden szinten csak a hirdetés-kezelést fedezi. A tényleges hirdetési költségkeretet (Meta, Google, TikTok) külön, közvetlenül a platformnak fizeted — ezt közösen állítjuk be a te büdzséd alapján. A havi árak ismétlődő, hó-havi díjak — ne keverd össze az egyszeri, 89 000 Ft-os indító csomaggal.",
       cta: "Ezt választom",
+      processing: "Átirányítás a fizetéshez...",
+      checkoutError: "Nem sikerült elindítani a fizetést. Próbáld újra, vagy jelentkezz az űrlapon.",
+    },
+    checkout: {
+      success: "Sikeres fizetés — ezzel közelebb kerültél az új weboldaladhoz. Hamarosan jelentkezünk a következő lépésekkel.",
+      cancelled: "A fizetés megszakadt. Bármikor újra próbálhatod, vagy jelentkezz az űrlapon, ha kérdésed van.",
     },
     faq: {
       tag: "GYIK // GYAKORI KÉRDÉSEK",
@@ -332,6 +338,12 @@ const translations = {
       ],
       adSpendNote: "At every tier, the monthly fee covers ad management only. The actual ad budget (Meta, Google, TikTok) is billed separately, paid directly to the platform — we set it together based on your budget. Monthly prices are recurring, billed every month — don't confuse them with the one-time, 89,000 Ft launch package.",
       cta: "I choose this",
+      processing: "Redirecting to checkout...",
+      checkoutError: "Couldn't start checkout. Try again, or apply through the form instead.",
+    },
+    checkout: {
+      success: "Payment successful — you're one step closer to your new website. We'll be in touch soon with next steps.",
+      cancelled: "Checkout was cancelled. You can try again anytime, or apply through the form if you have questions.",
     },
     faq: {
       tag: "FAQ // FREQUENT QUESTIONS",

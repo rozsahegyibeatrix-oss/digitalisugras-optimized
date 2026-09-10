@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import LeapButton from "@/components/LeapButton";
+import { startCheckout } from "@/lib/checkout";
 
-export default function Pricing({ onOpenLead }) {
+const PLAN_IDS = ["basic", "standard", "pro"];
+
+export default function Pricing() {
   const { t, lang } = useI18n();
   const P = t.pricing;
+  const [loadingIdx, setLoadingIdx] = useState(null);
+  const [errorIdx, setErrorIdx] = useState(null);
+
+  const handleChoose = async (i) => {
+    setErrorIdx(null);
+    setLoadingIdx(i);
+    try {
+      await startCheckout(PLAN_IDS[i]);
+    } catch {
+      setLoadingIdx(null);
+      setErrorIdx(i);
+    }
+  };
+
   return (
     <section id="pricing" className="py-20 sm:py-28 bg-white border-y border-silver/40">
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8">
@@ -56,12 +73,16 @@ export default function Pricing({ onOpenLead }) {
               </ul>
               <div className="mt-8">
                 <LeapButton
-                  onClick={onOpenLead}
+                  onClick={() => handleChoose(i)}
+                  disabled={loadingIdx === i}
                   variant={tier.popular ? "primary" : "outline"}
                   className="w-full justify-center"
                 >
-                  {P.cta}
+                  {loadingIdx === i ? P.processing : P.cta}
                 </LeapButton>
+                {errorIdx === i && (
+                  <p className="text-xs text-red-600 mt-2">{P.checkoutError}</p>
+                )}
               </div>
             </motion.div>
           ))}
