@@ -20,6 +20,7 @@ const translations = {
       ],
       cta: "Indítsd az Ugrást",
       ctaSub: "3 kérdés — mi intézzük a többit",
+      payCta: "Fizetek most — 89 000 Ft",
     },
     offer: {
       tag: "KORLÁTOZOTT AJÁNLAT // ELSŐ 50 ÜGYFÉL",
@@ -213,6 +214,7 @@ const translations = {
       ],
       cta: "Start Your Leap",
       ctaSub: "3 questions — we handle the rest",
+      payCta: "Pay now — 89,000 Ft",
     },
     offer: {
       tag: "LIMITED OFFER // FIRST 50 CLIENTS",

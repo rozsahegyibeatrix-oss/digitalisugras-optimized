@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
 import LeapButton from "@/components/LeapButton";
+import { startCheckout } from "@/lib/checkout";
 
 const CLIENTS = ["Coupé Barber", "Atelier V", "Kirembe Adventures", "Pai Striking Academy", "Budapest", "Zanzibár", "Phnom Penh"];
 const SET = [...CLIENTS, ...CLIENTS, ...CLIENTS];
@@ -9,6 +10,21 @@ const SET = [...CLIENTS, ...CLIENTS, ...CLIENTS];
 export default function Hero({ onOpenLead }) {
   const { t } = useI18n();
   const H = t.hero;
+  const P = t.pricing;
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+
+  const handlePay = async () => {
+    setError(false);
+    setLoading(true);
+    try {
+      await startCheckout("launch");
+    } catch {
+      setLoading(false);
+      setError(true);
+    }
+  };
+
   return (
     <section id="top" className="pt-28 sm:pt-40 pb-0">
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 pb-16">
@@ -45,9 +61,13 @@ export default function Hero({ onOpenLead }) {
             className="flex flex-wrap items-center gap-4"
           >
             <LeapButton onClick={onOpenLead}>{H.cta}</LeapButton>
+            <LeapButton onClick={handlePay} disabled={loading} variant="outline">
+              {loading ? P.processing : H.payCta}
+            </LeapButton>
             <span className="text-sm text-silver">{H.ctaSub}</span>
           </motion.div>
         </div>
+        {error && <p className="text-xs text-red-600 mt-2">{P.checkoutError}</p>}
 
         <div className="mt-14 grid sm:grid-cols-3 gap-px bg-silver/40 border border-silver/40 rounded-xl overflow-hidden">
           {H.chips.map((c, i) => (
