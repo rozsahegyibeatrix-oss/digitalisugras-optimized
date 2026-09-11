@@ -20,7 +20,6 @@ const translations = {
       ],
       cta: "Indítsd az Ugrást",
       ctaSub: "3 kérdés — mi intézzük a többit",
-      payCta: "Fizetek most — 89 000 Ft",
     },
     offer: {
       tag: "KORLÁTOZOTT AJÁNLAT // ELSŐ 50 ÜGYFÉL",
@@ -31,6 +30,7 @@ const translations = {
       spotsTaken: 12,
       spotsTotal: 50,
       spotsLabel: "hely lefoglalva",
+      cta: "Nem maradok le!",
       whyTitle: "Miért ennyire olcsó?",
       why1: "A MI felgyorsítja a gyártást — amit korábban hetekig tartott, most napok alatt kész.",
       why2: "Ez a korai ügyfél-ár: az első 50 munka építi a portfóliónkat, ezért neked kedvezünk.",
@@ -214,7 +214,6 @@ const translations = {
       ],
       cta: "Start Your Leap",
       ctaSub: "3 questions — we handle the rest",
-      payCta: "Pay now — 89,000 Ft",
     },
     offer: {
       tag: "LIMITED OFFER // FIRST 50 CLIENTS",
@@ -225,6 +224,7 @@ const translations = {
       spotsTaken: 12,
       spotsTotal: 50,
       spotsLabel: "spots claimed",
+      cta: "Count me in!",
       whyTitle: "Why so cheap?",
       why1: "AI speeds production — what used to take weeks now takes days.",
       why2: "This is early-client pricing: the first 50 projects build our portfolio, so we pass the saving to you.",

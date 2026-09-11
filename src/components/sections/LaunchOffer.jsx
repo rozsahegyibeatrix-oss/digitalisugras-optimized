@@ -58,9 +58,9 @@ export default function LaunchOffer() {
                 onClick={handleChoose}
                 disabled={loading}
                 variant="outline"
-                className="border-ice/40 text-ice hover:bg-ice hover:text-ink"
+                className="!border-ice/40 !text-ice hover:!bg-ice hover:!text-ink"
               >
-                {loading ? P.processing : t.nav.cta}
+                {loading ? P.processing : O.cta}
               </LeapButton>
               {error && <p className="text-xs text-red-400 mt-2">{P.checkoutError}</p>}
             </div>
