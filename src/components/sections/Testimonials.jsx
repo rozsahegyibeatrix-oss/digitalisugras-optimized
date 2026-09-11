@@ -11,6 +11,12 @@ function initials(name) {
     .toUpperCase();
 }
 
+const testimonialImages = {
+  "Nagy Éva": "/assets/testimonials/nagy-eva.jpg",
+  "Kovács Zsolt": "/assets/testimonials/kovacs-zsolt.jpg",
+  "Tóth Bence": "/assets/testimonials/toth-bence.jpg",
+};
+
 export default function Testimonials() {
   const { t } = useI18n();
   const Te = t.testimonials;
@@ -32,12 +38,12 @@ export default function Testimonials() {
               <blockquote className="text-ink leading-relaxed flex-1">&ldquo;{it.q}&rdquo;</blockquote>
               <figcaption className="flex items-center gap-3 mt-6">
                 <img
-                  src={`https://placehold.co/64x64/2D5BFF/fff?text=${initials(it.name)}`}
-                  alt=""
+                  src={testimonialImages[it.name] || `https://placehold.co/64x64/2D5BFF/fff?text=${initials(it.name)}`}
+                  alt={it.name}
                   width={40}
                   height={40}
                   loading="lazy"
-                  className="w-10 h-10 rounded-full shrink-0"
+                  className="w-10 h-10 rounded-full object-cover shrink-0"
                 />
                 <div>
                   <div className="text-sm font-semibold text-ink">{it.name}</div>
