@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { I18nProvider } from "@/lib/i18n";
+import { I18nProvider, useI18n } from "@/lib/i18n";
+import { useSEO } from "@/lib/useSEO";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
 import LeadFormModal from "@/components/LeadFormModal";
 
-function SectionPageContent({ Section }) {
+function SectionPageContent({ Section, routeKey }) {
+  const { lang } = useI18n();
+  useSEO(routeKey, lang);
   const [leadOpen, setLeadOpen] = useState(false);
   const openLead = () => setLeadOpen(true);
   return (
@@ -19,10 +22,10 @@ function SectionPageContent({ Section }) {
   );
 }
 
-export default function SectionPage({ Section, lang = "hu" }) {
+export default function SectionPage({ Section, routeKey, lang = "hu" }) {
   return (
     <I18nProvider initialLang={lang}>
-      <SectionPageContent Section={Section} />
+      <SectionPageContent Section={Section} routeKey={routeKey} />
     </I18nProvider>
   );
 }

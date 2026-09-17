@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUp, X } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import { I18nProvider, useI18n } from "@/lib/i18n";
+import { useSEO } from "@/lib/useSEO";
 import Nav from "@/components/Nav";
 import LeadFormModal from "@/components/LeadFormModal";
 import LeapButton from "@/components/LeapButton";
@@ -18,7 +19,8 @@ import FAQ from "@/components/sections/FAQ";
 import Footer from "@/components/sections/Footer";
 
 function HomeContent() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
+  useSEO("home", lang);
   const [leadOpen, setLeadOpen] = useState(false);
   const openLead = () => setLeadOpen(true);
 
