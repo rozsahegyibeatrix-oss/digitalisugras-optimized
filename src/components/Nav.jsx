@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
+import { useHomeLink } from "@/lib/useHomeLink";
 import LanguageToggle from "@/components/LanguageToggle";
 import LeapButton from "@/components/LeapButton";
 
 export default function Nav({ onOpenLead }) {
   const { t } = useI18n();
+  const homeLink = useHomeLink();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -33,7 +35,7 @@ export default function Nav({ onOpenLead }) {
       }`}
     >
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2 group">
+        <a href={homeLink("#top")} className="flex items-center gap-2 group">
           <span className="w-2.5 h-2.5 rounded-full bg-cobalt group-hover:scale-125 transition-transform" />
           <span className="font-semibold tracking-tight text-ink">Digitális Ugrás</span>
         </a>
@@ -42,7 +44,7 @@ export default function Nav({ onOpenLead }) {
           {links.map((lnk) => (
             <a
               key={lnk.h}
-              href={lnk.h}
+              href={homeLink(lnk.h)}
               className="text-sm text-muted-fg hover:text-ink transition-colors relative after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-cobalt hover:after:w-full after:transition-all after:duration-300"
             >
               {lnk.l}
@@ -78,7 +80,7 @@ export default function Nav({ onOpenLead }) {
           {links.map((lnk) => (
             <a
               key={lnk.h}
-              href={lnk.h}
+              href={homeLink(lnk.h)}
               onClick={() => setOpen(false)}
               className="block text-sm text-ink py-1"
             >

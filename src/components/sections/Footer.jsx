@@ -1,9 +1,11 @@
 import React from "react";
 import { useI18n } from "@/lib/i18n";
+import { useHomeLink } from "@/lib/useHomeLink";
 import LeapButton from "@/components/LeapButton";
 
 export default function Footer({ onOpenLead }) {
   const { t } = useI18n();
+  const homeLink = useHomeLink();
   const F = t.footer;
   return (
     <footer className="bg-ink text-ice pt-20 sm:pt-28 pb-10">
@@ -27,7 +29,7 @@ export default function Footer({ onOpenLead }) {
           <p className="text-silver/60 text-sm">{F.rights}</p>
           <nav className="flex flex-wrap gap-6">
             {F.links.map((l) => (
-              <a key={l.h} href={l.h} className="text-sm text-silver/80 hover:text-ice transition-colors">
+              <a key={l.h} href={homeLink(l.h)} className="text-sm text-silver/80 hover:text-ice transition-colors">
                 {l.l}
               </a>
             ))}

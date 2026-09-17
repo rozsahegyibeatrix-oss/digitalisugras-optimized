@@ -393,8 +393,8 @@ const translations = {
 
 const I18nContext = createContext({ lang: "hu", t: translations.hu, setLang: () => {} });
 
-export function I18nProvider({ children }) {
-  const [lang, setLangState] = useState("hu");
+export function I18nProvider({ children, initialLang = "hu" }) {
+  const [lang, setLangState] = useState(initialLang);
   const setLang = useCallback((l) => setLangState(l), []);
   return (
     <I18nContext.Provider value={{ lang, setLang, t: translations[lang] }}>

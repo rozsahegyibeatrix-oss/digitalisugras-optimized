@@ -102,9 +102,9 @@ function FloatingCTA({ onOpenLead, label }) {
   );
 }
 
-export default function Home() {
+export default function Home({ lang = "hu" }) {
   return (
-    <I18nProvider>
+    <I18nProvider initialLang={lang}>
       <HomeContent />
     </I18nProvider>
   );
