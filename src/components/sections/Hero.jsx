@@ -24,7 +24,7 @@ export default function Hero({ onOpenLead }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.05 }}
-          className="font-heading text-[2.6rem] sm:text-7xl lg:text-8xl leading-[1.0] tracking-tight text-ink max-w-5xl text-balance"
+          className="font-heading text-[clamp(2.6rem,14vw,3.6rem)] sm:text-7xl lg:text-8xl leading-[1.0] tracking-tight text-ink max-w-5xl text-balance"
         >
           {H.headline}
         </motion.h1>
