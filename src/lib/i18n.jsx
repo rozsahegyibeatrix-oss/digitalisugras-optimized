@@ -193,6 +193,7 @@ const translations = {
         { l: "Árak", h: "#pricing" },
         { l: "GYIK", h: "#faq" },
       ],
+      pages: { work: "Összes munkánk", pricing: "Csomagok és árak", faq: "Részletes GYIK", other: "English version" },
     },
   },
   en: {
@@ -387,6 +388,7 @@ const translations = {
         { l: "Pricing", h: "#pricing" },
         { l: "FAQ", h: "#faq" },
       ],
+      pages: { work: "All our work", pricing: "Plans and pricing", faq: "Full FAQ", other: "Magyar verzió" },
     },
   },
 };

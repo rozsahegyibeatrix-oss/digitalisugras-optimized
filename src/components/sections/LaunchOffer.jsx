@@ -67,7 +67,7 @@ export default function LaunchOffer() {
           </div>
 
           <div className="lg:col-span-7 lg:border-l lg:border-silver/20 lg:pl-16">
-            <h3 className="text-xl font-semibold mb-5">{O.whyTitle}</h3>
+            <h2 className="text-xl font-semibold mb-5">{O.whyTitle}</h2>
             <div className="space-y-5">
               {[O.why1, O.why2].map((w, i) => (
                 <div key={i} className="flex gap-4">

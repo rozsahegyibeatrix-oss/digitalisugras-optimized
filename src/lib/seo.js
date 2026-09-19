@@ -60,3 +60,12 @@ export const SEO = {
     },
   },
 };
+
+const ALIASES = { "/home": "home", "/en/home": "home" };
+
+// Path of the same page in another language, or null if pathname isn't a known page.
+export function counterpartPath(pathname, toLang) {
+  const key =
+    ALIASES[pathname] ?? Object.keys(ROUTES).find((k) => Object.values(ROUTES[k]).includes(pathname));
+  return key ? ROUTES[key][toLang] : null;
+}

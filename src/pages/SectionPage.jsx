@@ -16,7 +16,7 @@ function SectionPageContent({ Section, routeKey }) {
     <div className="min-h-screen bg-ice">
       <Nav onOpenLead={openLead} />
       <main className="pt-16">
-        <Section onOpenLead={openLead} />
+        <Section onOpenLead={openLead} asH1 />
       </main>
       <Footer onOpenLead={openLead} />
       <LeadFormModal open={leadOpen} onClose={() => setLeadOpen(false)} />

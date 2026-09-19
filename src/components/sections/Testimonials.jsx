@@ -39,7 +39,7 @@ export default function Testimonials() {
               <figcaption className="flex items-center gap-3 mt-6">
                 <img
                   src={testimonialImages[it.name] || `https://placehold.co/64x64/2D5BFF/fff?text=${initials(it.name)}`}
-                  alt={it.name}
+                  alt={`${it.name}, ${it.role}`}
                   width={40}
                   height={40}
                   loading="lazy"

@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Plus } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 
-export default function FAQ() {
+export default function FAQ({ asH1 = false }) {
+  const Title = asH1 ? "h1" : "h2";
   const { t } = useI18n();
   const F = t.faq;
   const [open, setOpen] = useState(0);
@@ -12,7 +13,7 @@ export default function FAQ() {
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-4">
           <div className="mono-tag mb-4">{F.tag}</div>
-          <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight text-ink text-balance">{F.title}</h2>
+          <Title className="text-3xl sm:text-5xl font-semibold tracking-tight text-ink text-balance">{F.title}</Title>
         </div>
         <div className="lg:col-span-8">
           <div className="border-t border-silver/50">

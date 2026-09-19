@@ -7,7 +7,9 @@ import { startCheckout } from "@/lib/checkout";
 
 const PLAN_IDS = ["basic", "standard", "pro"];
 
-export default function Pricing() {
+export default function Pricing({ asH1 = false }) {
+  const Title = asH1 ? "h1" : "h2";
+  const Sub = asH1 ? "h2" : "h3";
   const { t, lang } = useI18n();
   const P = t.pricing;
   const [loadingIdx, setLoadingIdx] = useState(null);
@@ -29,7 +31,7 @@ export default function Pricing() {
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8">
         <div className="mono-tag mb-4">{P.tag}</div>
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
-          <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight text-ink max-w-xl text-balance">{P.title}</h2>
+          <Title className="text-3xl sm:text-5xl font-semibold tracking-tight text-ink max-w-xl text-balance">{P.title}</Title>
           <p className="text-muted-fg max-w-sm">{P.sub}</p>
         </div>
 
@@ -53,7 +55,7 @@ export default function Pricing() {
                 </span>
               )}
               <div className="flex items-baseline justify-between">
-                <h3 className="text-xl font-semibold text-ink">{tier.name}</h3>
+                <Sub className="text-xl font-semibold text-ink">{tier.name}</Sub>
                 {tier.popular && <span className="w-2 h-2 rounded-full bg-cobalt" />}
               </div>
               <p className="text-sm text-muted-fg mt-1.5 min-h-[2.5rem]">{tier.desc}</p>

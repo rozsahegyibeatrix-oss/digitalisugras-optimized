@@ -12,7 +12,7 @@ export default function MiniCoupe() {
         <span className="bg-[#FF6600] text-white text-[6px] px-1.5 py-1 whitespace-nowrap">IDŐPONTFOGLALÁS</span>
       </nav>
       <div className="flex-1 flex flex-col items-center justify-center text-center px-4 gap-1.5">
-        <h1 className="text-2xl font-bold text-[#FF6600] tracking-tight leading-none">COUPÉ</h1>
+        <div className="text-2xl font-bold text-[#FF6600] tracking-tight leading-none">COUPÉ</div>
         <div className="text-[7px] tracking-[0.35em] text-[#FF6600]">BARBER SHOP</div>
         <p className="text-[7px] text-[#666] leading-relaxed max-w-[250px] mt-1">
           PREMIUM BARBER SHOP A FERENC KÖRÚTON. EGY OLYAN KÖZÖSSÉGI TÉR, AMI MEG KÍSÉREL MINDENT ÖSSZEFOGNI, AMI A BORBÉLY KULTÚRÁNK RÉSZE.

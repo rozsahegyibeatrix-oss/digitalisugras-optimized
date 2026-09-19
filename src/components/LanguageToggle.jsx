@@ -1,10 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
+import { counterpartPath } from "@/lib/seo";
 
 export default function LanguageToggle() {
-  const { lang, setLang } = useI18n();
+  const { lang, setLang: setLangState } = useI18n();
   const isHu = lang === "hu";
+  // Keep the instant client-side switch, but also move the URL to the real
+  // page for that language so reloads/shares land on the right prerendered page.
+  const setLang = (l) => {
+    setLangState(l);
+    const next = counterpartPath(window.location.pathname, l);
+    if (next) window.history.replaceState(null, "", next + window.location.hash);
+  };
   return (
     <div className="flex items-center gap-1 font-mono text-[11px] tracking-[0.2em] uppercase select-none">
       <span

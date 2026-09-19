@@ -20,7 +20,8 @@ const PROJECTS = [
   { id: "pai", name: "Pai Striking Academy", url: "paistrinkingacademy.space", Mini: MiniPai, video: "/assets/portfolio/pai-video.mp4", screenshot: "/assets/portfolio/pai-screenshot.webp", w: 1400, h: 724 },
 ];
 
-export default function Portfolio() {
+export default function Portfolio({ asH1 = false }) {
+  const Title = asH1 ? "h1" : "h2";
   const { t } = useI18n();
   const W = t.work;
   return (
@@ -28,13 +29,13 @@ export default function Portfolio() {
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8">
         <div className="mono-tag mb-4">{W.tag}</div>
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
-          <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight text-ink max-w-xl text-balance">{W.title}</h2>
+          <Title className="text-3xl sm:text-5xl font-semibold tracking-tight text-ink max-w-xl text-balance">{W.title}</Title>
           <p className="text-muted-fg max-w-sm">{W.sub}</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-20">
           {PROJECTS.map((p, i) => (
-            <ShowcaseCard key={p.id} project={p} index={i} data={W.items[i]} labels={W} />
+            <ShowcaseCard key={p.id} project={p} index={i} data={W.items[i]} labels={W} asH1={asH1} />
           ))}
         </div>
       </div>
@@ -42,7 +43,8 @@ export default function Portfolio() {
   );
 }
 
-function ShowcaseCard({ project, index, data, labels }) {
+function ShowcaseCard({ project, index, data, labels, asH1 }) {
+  const Sub = asH1 ? "h2" : "h3";
   const Mini = project.Mini;
   const liveUrl = `https://${project.url}`;
 
@@ -57,9 +59,9 @@ function ShowcaseCard({ project, index, data, labels }) {
       <div className="flex items-start justify-between gap-4 mb-4">
         <div>
           <div className="mono-tag">{data.type}</div>
-          <h3 className="text-xl font-semibold text-ink mt-1 group-hover:text-cobalt transition-colors">
+          <Sub className="text-xl font-semibold text-ink mt-1 group-hover:text-cobalt transition-colors">
             {data.name}
-          </h3>
+          </Sub>
         </div>
         <a
           href={liveUrl}
@@ -86,7 +88,7 @@ function ShowcaseCard({ project, index, data, labels }) {
           <LaptopFrame url={project.url}>
             <img
               src={project.screenshot}
-              alt={`${project.name} website`}
+              alt={`${data.name} — ${data.type}`}
               width={project.w}
               height={project.h}
               loading="lazy"
@@ -103,6 +105,7 @@ function ShowcaseCard({ project, index, data, labels }) {
                 <Mini />
                 <LazyVideo
                   src={project.video}
+                  label={`${data.name}: ${data.chip}`}
                   className="absolute inset-0 w-full h-full object-cover object-center"
                 />
               </>

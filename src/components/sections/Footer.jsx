@@ -1,12 +1,20 @@
 import React from "react";
 import { useI18n } from "@/lib/i18n";
 import { useHomeLink } from "@/lib/useHomeLink";
+import { ROUTES } from "@/lib/seo";
 import LeapButton from "@/components/LeapButton";
 
 export default function Footer({ onOpenLead }) {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const homeLink = useHomeLink();
   const F = t.footer;
+  const other = lang === "en" ? "hu" : "en";
+  const pageLinks = [
+    { href: ROUTES.work[lang], label: F.pages.work },
+    { href: ROUTES.pricing[lang], label: F.pages.pricing },
+    { href: ROUTES.faq[lang], label: F.pages.faq },
+    { href: ROUTES.home[other], label: F.pages.other, attrs: { hrefLang: other, lang: other } },
+  ];
   return (
     <footer className="bg-ink text-ice pt-20 sm:pt-28 pb-10">
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8">
@@ -35,6 +43,13 @@ export default function Footer({ onOpenLead }) {
             ))}
           </nav>
         </div>
+        <nav aria-label="Pages" className="mt-4 flex flex-wrap gap-6">
+          {pageLinks.map((l) => (
+            <a key={l.href} href={l.href} {...l.attrs} className="text-sm text-silver/80 hover:text-ice transition-colors">
+              {l.label}
+            </a>
+          ))}
+        </nav>
       </div>
     </footer>
   );
