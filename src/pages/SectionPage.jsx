@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { I18nProvider, useI18n } from "@/lib/i18n";
 import { useSEO } from "@/lib/useSEO";
+import { useJsonLd } from "@/lib/useJsonLd";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
 import LeadFormModal from "@/components/LeadFormModal";
 
 function SectionPageContent({ Section, routeKey }) {
-  const { lang } = useI18n();
+  const { lang, t } = useI18n();
   useSEO(routeKey, lang);
+  useJsonLd(routeKey, lang, t);
   const [leadOpen, setLeadOpen] = useState(false);
   const openLead = () => setLeadOpen(true);
   return (
