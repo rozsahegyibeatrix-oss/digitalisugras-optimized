@@ -67,6 +67,12 @@ async function main() {
       console.log(`prerendered ${urlPath} -> ${outDir}/index.html`);
     }
 
+    // Real 404 page: Vercel serves dist/404.html with a 404 status for unknown URLs.
+    await page.goto(`http://localhost:${PORT}/404`, { waitUntil: "networkidle0" });
+    await writeFile("dist/404.html", `<!doctype html>
+${await page.content()}`, "utf8");
+    console.log("prerendered 404 -> dist/404.html");
+
     await browser.close();
   } finally {
     server.kill();

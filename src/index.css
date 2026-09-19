@@ -93,7 +93,10 @@
 
 @layer components {
   .lead-input {
-    @apply w-full bg-white border border-silver/60 rounded-lg px-3.5 py-2.5 text-sm text-ink placeholder:text-silver/80 focus:outline-none focus:border-cobalt focus:ring-2 focus:ring-cobalt/20 transition;
+    @apply w-full bg-white border border-silver/60 rounded-lg px-3.5 py-2.5 text-base sm:text-sm text-ink placeholder:text-silver/80 focus:outline-none focus:border-cobalt focus:ring-2 focus:ring-cobalt/20 transition;
+  }
+  .tap {
+    @apply relative before:absolute before:-inset-3;
   }
   .mono-tag {
     @apply font-mono text-[11px] tracking-[0.25em] uppercase text-silver;

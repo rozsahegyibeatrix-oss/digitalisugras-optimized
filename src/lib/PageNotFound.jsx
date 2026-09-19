@@ -1,8 +1,14 @@
-import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
-export default function PageNotFound({}) {
-    const location = useLocation();
-    const pageName = location.pathname.substring(1);
+export default function PageNotFound() {
+    useEffect(() => {
+        document.title = '404 | Digitális Ugrás';
+        const m = document.createElement('meta');
+        m.name = 'robots';
+        m.content = 'noindex';
+        document.head.appendChild(m);
+        return () => m.remove();
+    }, []);
 
     return (
         <div className="min-h-screen flex items-center justify-center p-6 bg-slate-50">
@@ -20,7 +26,7 @@ export default function PageNotFound({}) {
                             Page Not Found
                         </h2>
                         <p className="text-slate-600 leading-relaxed">
-                            The page <span className="font-medium text-slate-700">"{pageName}"</span> could not be found in this application.
+                            This page could not be found.
                         </p>
                     </div>
 

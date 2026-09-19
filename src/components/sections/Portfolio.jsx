@@ -67,7 +67,7 @@ function ShowcaseCard({ project, index, data, labels, asH1 }) {
           href={liveUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-widest text-muted-fg hover:text-cobalt border border-silver/60 rounded-full px-3 py-1.5 hover:border-cobalt/50 transition-colors whitespace-nowrap"
+          className="tap inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-widest text-muted-fg hover:text-cobalt border border-silver/60 rounded-full px-3 py-1.5 hover:border-cobalt/50 transition-colors whitespace-nowrap"
         >
           {labels.live} <ExternalLink className="w-3 h-3" />
         </a>

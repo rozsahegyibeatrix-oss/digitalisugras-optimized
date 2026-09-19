@@ -27,7 +27,7 @@ export default function Footer({ onOpenLead }) {
 
         <a
           href="mailto:digitalisugras@gmail.com"
-          className="block max-w-full font-heading font-semibold tracking-tight text-ice hover:text-cobalt transition-colors leading-[0.95] [overflow-wrap:anywhere]"
+          className="tap block max-w-full font-heading font-semibold tracking-tight text-ice hover:text-cobalt transition-colors leading-[0.95] [overflow-wrap:anywhere]"
           style={{ fontSize: "clamp(1.75rem, 6.5vw, 7rem)" }}
         >
           digitalisugras@gmail.com
@@ -37,15 +37,15 @@ export default function Footer({ onOpenLead }) {
           <p className="text-silver/60 text-sm">{F.rights}</p>
           <nav className="flex flex-wrap gap-6">
             {F.links.map((l) => (
-              <a key={l.h} href={homeLink(l.h)} className="text-sm text-silver/80 hover:text-ice transition-colors">
+              <a key={l.h} href={homeLink(l.h)} className="tap text-sm text-silver/80 hover:text-ice transition-colors">
                 {l.l}
               </a>
             ))}
           </nav>
         </div>
-        <nav aria-label="Pages" className="mt-4 flex flex-wrap gap-6">
+        <nav aria-label="Pages" className="mt-6 flex flex-wrap gap-6">
           {pageLinks.map((l) => (
-            <a key={l.href} href={l.href} {...l.attrs} className="text-sm text-silver/80 hover:text-ice transition-colors">
+            <a key={l.href} href={l.href} {...l.attrs} className="tap text-sm text-silver/80 hover:text-ice transition-colors">
               {l.label}
             </a>
           ))}

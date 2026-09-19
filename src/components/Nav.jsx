@@ -35,7 +35,7 @@ export default function Nav({ onOpenLead }) {
       }`}
     >
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
-        <a href={homeLink("#top")} className="flex items-center gap-2 group">
+        <a href={homeLink("#top")} className="tap flex items-center gap-2 group">
           <span className="w-2.5 h-2.5 rounded-full bg-cobalt group-hover:scale-125 transition-transform" />
           <span className="font-semibold tracking-tight text-ink">Digitális Ugrás</span>
         </a>
@@ -45,7 +45,7 @@ export default function Nav({ onOpenLead }) {
             <a
               key={lnk.h}
               href={homeLink(lnk.h)}
-              className="text-sm text-muted-fg hover:text-ink transition-colors relative after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-cobalt hover:after:w-full after:transition-all after:duration-300"
+              className="tap text-sm text-muted-fg hover:text-ink transition-colors relative after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-cobalt hover:after:w-full after:transition-all after:duration-300"
             >
               {lnk.l}
             </a>
@@ -62,7 +62,7 @@ export default function Nav({ onOpenLead }) {
             </LeapButton>
           </div>
           <button
-            className="md:hidden p-1 text-ink"
+            className="md:hidden p-1 text-ink relative before:absolute before:-inset-1.5"
             onClick={() => setOpen((o) => !o)}
             aria-label="Menu"
           >
@@ -82,7 +82,7 @@ export default function Nav({ onOpenLead }) {
               key={lnk.h}
               href={homeLink(lnk.h)}
               onClick={() => setOpen(false)}
-              className="block text-sm text-ink py-1"
+              className="block text-sm text-ink py-3"
             >
               {lnk.l}
             </a>
