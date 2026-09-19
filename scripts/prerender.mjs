@@ -43,7 +43,18 @@ async function main() {
   try {
     await waitForServer(`http://localhost:${PORT}/`);
 
-    const browser = await puppeteer.launch({ headless: true, args: ["--no-sandbox"] });
+    // Vercel's Linux build image lacks Chrome's system libraries, so use a
+    // Chromium build that bundles them there; locally use Puppeteer's own.
+    let launchOptions = { headless: true, args: ["--no-sandbox"] };
+    if (process.env.VERCEL) {
+      const { default: chromium } = await import("@sparticuz/chromium");
+      launchOptions = {
+        headless: "shell",
+        args: chromium.args,
+        executablePath: await chromium.executablePath(),
+      };
+    }
+    const browser = await puppeteer.launch(launchOptions);
     const page = await browser.newPage();
     await page.setViewport({ width: 1200, height: 630 });
 
