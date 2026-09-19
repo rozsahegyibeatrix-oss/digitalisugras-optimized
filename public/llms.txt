@@ -1,0 +1,26 @@
+# Digitális Ugrás
+
+> Digitális Ugrás builds websites, ad packages and monthly content for Hungarian small businesses (nail salons, bakeries, barbershops, shops) in about a week. AI speeds up production; a human reviews and approves every result. Based in Budapest. Site languages: Hungarian (default) and English.
+
+## Services
+
+- Launch package: booking-ready website plus launch-ready ad package, one-time 89,000 Ft for the first 50 clients (regular 149,000 Ft). Usually ready in 5-7 working days.
+- Monthly plans, cancel anytime, no long-term contract: Basic 54,000 Ft/month, Standard 79,000 Ft/month, Pro 89,000 Ft/month. The monthly fee covers ad management only; the ad budget (Meta, Google, TikTok) is paid separately to the platform.
+
+## Pages (Hungarian)
+
+- [Főoldal](https://digitalisugras.company/): overview, launch offer, portfolio, process, pricing, FAQ
+- [Munkáink](https://digitalisugras.company/munkaink): live client websites and ads
+- [Árak](https://digitalisugras.company/arak): launch package and monthly plans
+- [GYIK](https://digitalisugras.company/gyik): frequently asked questions
+
+## Pages (English)
+
+- [Home](https://digitalisugras.company/en): overview, launch offer, portfolio, process, pricing, FAQ
+- [Work](https://digitalisugras.company/en/work): live client websites and ads
+- [Pricing](https://digitalisugras.company/en/pricing): launch package and monthly plans
+- [FAQ](https://digitalisugras.company/en/faq): frequently asked questions
+
+## Contact
+
+- Email: digitalisugras@gmail.com
