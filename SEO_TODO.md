@@ -2,21 +2,19 @@
 
 Ordered by impact.
 
-## 1. Check the build on Vercel before relying on it (highest risk)
+## 1. Vercel build (done, keep in mind)
 
-`npm run build` now launches headless Chrome (Puppeteer) to prerender. I only
-ran it on Windows. Vercel's Linux build image may lack Chrome's system
-libraries; if so the build fails.
+Deployed 2026-09-19. The first production build failed because headless Chrome can't start on
+Vercel's Linux image; fixed by using `@sparticuz/chromium` when `process.env.VERCEL` is set
+(`scripts/prerender.mjs`). Verified live: real HTML at `/`, all 10 pages + `/robots.txt`,
+`/sitemap.xml`, `/llms.txt` return 200, unknown URLs return 404, security headers present,
+`/arak/` redirects to `/arak`.
 
-- A failed build does **not** replace production. Vercel keeps the last good deployment.
-- Safest: push to a branch first and open the Vercel **preview** deployment.
-- If it fails on missing libraries (e.g. `libnss3`), the usual fix is
-  `@sparticuz/chromium` + `puppeteer-core` in `scripts/prerender.mjs` when
-  `process.env.VERCEL` is set. I did not add it untested.
-- After deploy, verify: `curl -s https://digitalisugras.company/ | head -c 600`
-  shows real headline text; `/robots.txt`, `/sitemap.xml`, `/llms.txt`, `/munkaink`, `/en`
-  return 200; a random URL returns 404.
-- The commits are local only; nothing is pushed.
+- If a future build fails, open the deployment in Vercel and read the log; the prerender step is the likeliest place.
+- Vercel skips a production build when the same commit was already built as a preview.
+  To force one, push a new commit to `main`.
+- The test branch `vercel-build-fix` can be deleted on GitHub.
+- Not yet checked: `www.digitalisugras.company` (redirect is configured; the www domain must be added in Vercel for it to work).
 
 ## 2. Search Console + Bing Webmaster (you must do this)
 
