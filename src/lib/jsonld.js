@@ -24,6 +24,12 @@ function organizationNode() {
     url: SITE_URL,
     logo: `${SITE_URL}/favicon.svg`,
     email: "digitalisugras@gmail.com",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Kossuth Lajos utca",
+      addressLocality: "Budapest",
+      addressCountry: "HU",
+    },
     areaServed: "HU",
     availableLanguage: ["hu", "en"],
     contactPoint: {

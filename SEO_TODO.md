@@ -35,7 +35,7 @@ No verification token is in the repo: I would have had to invent one.
 | Missing | Used for |
 |---|---|
 | Social profile URLs (Facebook, Instagram, LinkedIn...) | Organization `sameAs` in `src/lib/jsonld.js` |
-| Phone number, street address, opening hours | `LocalBusiness` upgrade / Google Business Profile |
+| Phone number, house number, postal code, opening hours (street given: Kossuth Lajos utca, Budapest V.) | `LocalBusiness` upgrade / Google Business Profile |
 | Founding year, VAT/company number | Organization `foundingDate`, `vatID` |
 | Raster logo PNG, at least 112x112 | Organization `logo` (currently `favicon.svg`) |
 
