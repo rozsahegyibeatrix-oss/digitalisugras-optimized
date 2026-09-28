@@ -5,10 +5,10 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 // HUF is NOT a zero-decimal currency in Stripe (unlike e.g. JPY) — unit_amount
 // is in fillér (1/100 Ft), so forint amounts must be multiplied by 100.
 const PLANS = {
-  launch: { name: "Indító csomag — Digitális Ugrás", amountFt: 89000, mode: "payment" },
-  basic: { name: "Basic csomag — Digitális Ugrás", amountFt: 54000, mode: "subscription" },
-  standard: { name: "Standard csomag — Digitális Ugrás", amountFt: 79000, mode: "subscription" },
-  pro: { name: "Pro csomag — Digitális Ugrás", amountFt: 89000, mode: "subscription" },
+  launch: { name: "Indító csomag — Digitális Ugrás", amountFt: 120000, mode: "payment" },
+  basic: { name: "Basic csomag — Digitális Ugrás", amountFt: 80000, mode: "subscription" },
+  standard: { name: "Standard csomag — Digitális Ugrás", amountFt: 119000, mode: "subscription" },
+  pro: { name: "Pro csomag — Digitális Ugrás", amountFt: 149000, mode: "subscription" },
 };
 
 export default async function handler(req, res) {

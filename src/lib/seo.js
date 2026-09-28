@@ -39,12 +39,12 @@ export const SEO = {
     hu: {
       title: "Árak — fix havi csomagok, bármikor lemondható | Digitális Ugrás",
       description:
-        "Indító csomag 89 000 Ft-tól, utána Basic, Standard vagy Pro havi csomag. Átlátható árazás, nincs hosszú távú szerződés, bármikor lemondható.",
+        "Indító csomag 120 000 Ft-tól, utána Basic, Standard vagy Pro havi csomag. Átlátható árazás, nincs hosszú távú szerződés, bármikor lemondható.",
     },
     en: {
       title: "Pricing — Monthly Plans, Cancel Anytime | Digitális Ugrás",
       description:
-        "Launch package from 89,000 Ft, then Basic, Standard or Pro monthly plans. Transparent pricing, no long-term contract, cancel anytime.",
+        "Launch package from 120,000 Ft, then Basic, Standard or Pro monthly plans. Transparent pricing, no long-term contract, cancel anytime.",
     },
   },
   faq: {
